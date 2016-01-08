@@ -23,16 +23,29 @@
       <scope>test</scope>
     </dependency>
 
-  <dependency>
+    <dependency>
     <groupId>org.springframework</groupId>
     <artifactId>spring-webmvc</artifactId>
     <version>${spring.version}</version>
   </dependency>
 
-  <dependency>
+    <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-test</artifactId>
       <version>${spring.version}</version>
+    </dependency>
+
+    <!-- remote method invoker-->
+    <dependency>
+      <groupId>com.caucho</groupId>
+      <artifactId>hessian</artifactId>
+      <version>4.0.38</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.caucho</groupId>
+      <artifactId>burlap</artifactId>
+      <version>2.1.12</version>
     </dependency>
 
   </dependencies>

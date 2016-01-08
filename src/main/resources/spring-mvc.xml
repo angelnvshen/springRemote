@@ -10,6 +10,9 @@
 
     <context:annotation-config />
 
+    <!--
+        RMI
+    -->
     <!-- client -->
     <bean id="fileUtilService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
         <property name="serviceUrl" value="rmi://127.0.0.1:1199/IFileUtilServer" />
@@ -19,5 +22,28 @@
     <bean id="fileUtilClient" class="jmi_upload.client.FileUtilClient">
         <property name="fileUtil" ref="fileUtilService" />
     </bean>
-    
+
+    <!--
+        Hessian
+    -->
+    <!-- client -->
+    <bean id="hessianServiceClient" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <!--hessian的地址和名称请求转发的名称-->
+        <property name="serviceUrl">
+            <value>http://127.0.0.1:8888/springON/helloHessian</value>
+        </property>
+        <!--hessian所要调用的接口-->
+        <property name="serviceInterface">
+            <value>hessian.IHello</value>
+        </property>
+    </bean>
+
+    <!--
+        burlap client
+    -->
+    <bean id="getFoodService"
+          class="org.springframework.remoting.caucho.BurlapProxyFactoryBean">
+        <property name="serviceInterface" value="burlap.client.FoodService"/>
+        <property name="serviceUrl" value="http://127.0.0.1:8888/springON/foodService"/>
+    </bean>
 </beans>
