@@ -46,4 +46,12 @@
         <property name="serviceInterface" value="burlap.client.FoodService"/>
         <property name="serviceUrl" value="http://127.0.0.1:8888/springON/foodService"/>
     </bean>
+
+    <!--
+        httpInvoker client
+    -->
+    <bean id="httpInvokerClent" class="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean">
+        <property name="serviceUrl" value="http://127.0.0.1:8888/springON/httpInvokerService"/>
+        <property name="serviceInterface" value="httpInvoker.HttpInvokerService"/>
+    </bean>
 </beans>

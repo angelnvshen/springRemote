@@ -2,6 +2,7 @@ package com.own;
 
 import burlap.client.FoodService;
 import hessian.IHello;
+import httpInvoker.HttpInvokerService;
 import jmi_upload.client.FileUtilClient;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,6 +29,9 @@ public class RemoteInvokeTest {
     @Resource(name="getFoodService")
     private FoodService foodService;
 
+    @Resource(name = "httpInvokerClent")
+    private HttpInvokerService httpInvokerService;
+
     @Test
     public void testRMI(){
         fileUtilClient.uploadFile();
@@ -41,5 +45,12 @@ public class RemoteInvokeTest {
     @Test
     public void testBurlap(){
         System.out.println(foodService.getFoods());
+    }
+
+    @Test
+    public void testHttpInvoker(){
+        System.out.println(httpInvokerService.getString("QIN"));
+        System.out.println(httpInvokerService.getCar());
+        System.out.println(httpInvokerService.getMap("m3"));
     }
 }
